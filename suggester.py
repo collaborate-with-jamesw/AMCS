@@ -1,15 +1,16 @@
-def print_suggestion(suggestion_dict):
-    print(suggestion_dict['name'])
-    print(suggestion_dict['category'])
-    print(suggestion_dict['street'])
-    print(suggestion_dict['city'])
+from suggestion_loader import get_random_suggestion
 
-DEFAULT_SUGGESTION = {
-    'name': 'Mustang Donuts',
-    'category': 'Doughnuts',
-    'street': 'Hillcrest',
-    'city': 'Dallas'
-}
+def print_suggestion(suggestion_dict):
+    print((
+        '{name}, it is a {category} place '
+        'on {street} in {city}.'
+    ).format(
+        name=suggestion_dict['name'],
+        category=suggestion_dict['category'],
+        street=suggestion_dict['street'],
+        city=suggestion_dict['city']
+    ))
 
 print('I suggest this restaurant:')
-print_suggestion(DEFAULT_SUGGESTION)
+suggestion = get_random_suggestion()
+print_suggestion(suggestion)
